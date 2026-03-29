@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS Console Exec</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="toolbar">
+      <button id="run">Run</button>
+      <button id="clear">Clear</button>
+      <select id="examples">
+        <option value="">Load example...</option>
+      </select>
+      <button id="copy">Copy</button>
+    </div>
+    
+    <div class="main">
+      <div class="editor-panel">
+        <label>JS Code</label>
+        <textarea id="code" spellcheck="false"></textarea>
+      </div>
+      
+      <div class="console-panel">
+        <label>Console Output</label>
+        <div id="console" class="console-output"></div>
+      </div>
+    </div>
+    
+    <div class="status">Ready • Ctrl+Enter to run • Real-time JS execution • Educational use only • Sideload via about:debugging</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
