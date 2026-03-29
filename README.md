@@ -68,14 +68,14 @@ Partially works (but limited by sidebar size):
 
 Hard Limits of the Tool (What Will NOT Work):
 • Because this is a sidebar extension page (not a content script injected into a webpage), there are clear architectural boundaries:
-Feature                                                            Works?             Reason / Workaround
-Access current webpage DOM                            No                 You cannot do document.querySelector('body') on google.com or any tab
-Modify open websites                                         No                 No content-script injection
-Browser APIs (tabs, bookmarks, history)          Limited              Only clipboardWrite is allowed.
-External script libraries                                        No                 CSP blocks <script src="..."> (you can only use pure JS)
-Web Workers (advanced)                        Possible but complex   Requires extra code to set up
-Full-screen games / heavy graphics                   Limited              Canvas works but sidebar is small; performance is good for learning
-Persistent data across reloads                               No                 No browser.storage yet (easy to add later)
+Feature                                       Works?            Reason / Workaround
+Access current webpage DOM                      No              You cannot do document.querySelector('body') on google.com or any tab
+Modify open websites                            No              No content-script injection
+Browser APIs (tabs, bookmarks, history)       Limited           Only clipboardWrite is allowed
+External script libraries                       No              CSP blocks <script src="..."> (you can only use pure JS)
+Web Workers (advanced)                   Possible but complex   Requires extra code to set up
+Full-screen games / heavy graphics            Limited           Canvas works but sidebar is small; performance is good for learning
+Persistent data across reloads                   No             No browser.storage yet (easy to add later)
 
 Bottom line:
 This tool is excellent for learning and testing pure JavaScript logic, console behavior, async code, modern syntax, small DOM/Canvas experiments, and algorithms.
@@ -144,10 +144,10 @@ Testing:
 
 Files:
 1) manifest.json         - Extension metadata with permissions and the explicit mandatory “no data collection” declaration.
-2) sidebar.html           - Main interface.
-3) style.css                 - Neon dark theme.
-4) script.js                  - Core logic and examples.
-5) README.md        - Documentation file explaining the add-on's purpose, features, installation, usage, and privacy.
+2) sidebar.html          - Main interface.
+3) style.css             - Neon dark theme.
+4) script.js             - Core logic and examples.
+5) README.md             - Documentation file explaining the add-on's purpose, features, installation, usage, and privacy.
 
 
 
@@ -167,6 +167,8 @@ Creation of the Add-On:
 Files:
 
 1) manifest.json
+
+```json
 
 {
   "manifest_version": 2,
@@ -193,9 +195,13 @@ Files:
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self';"
 }
 
+```
+
 ------------------------------------------------------------------------
 
 2) sidebar.html
+
+```html
 
 <!DOCTYPE html>
 <html lang="en">
@@ -234,9 +240,13 @@ Files:
 </body>
 </html>
 
+```
+
 ------------------------------------------------------------------------
 
 3) style.css
+
+```css
 
 :root {
   --bg: #0a0a0a;
@@ -345,9 +355,13 @@ label {
   font-weight: 400;
 }
 
+```
+
 ------------------------------------------------------------------------
 
 4) script.js
+
+```js
 
 // script.js - JS Console Exec
 const codeArea = document.getElementById('code');
@@ -820,6 +834,8 @@ captureLog('log', 'JS Console Exec ready.');
 captureLog('log', 'Clear now resets both panels and the dropdown properly.');
 
 console.log('✅ script.js fully loaded');
+
+```
 
 ------------------------------------------------------------------------
 
